@@ -1,8 +1,18 @@
+PATH=/usr/local/
+
 #path to Eigen directory
 EIGEN_PATH=/usr/local/include/eigen3
 
-my_program: my_program.cpp
-	g++ -I ${EIGEN_PATH} my_program.cpp -o my_program
+CC=g++
+
+parse: OBJParser.o my_program.o
+	${CC} -o parse OBJParser.o my_program.o
+
+my_program.o: my_program.cpp
+	CC -c  my_program.cpp -I${EIGEN_PATH}
+
+parse.o: OBJParser.cpp
+	CC -c OBJParser.cpp -I ${PATH}include/
 
 clean:
-	rm -f *.o my_program
+	rm -f *.o parse

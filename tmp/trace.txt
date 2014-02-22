@@ -1,0 +1,4 @@
+opened successfully 
+test
+123
+closing file
