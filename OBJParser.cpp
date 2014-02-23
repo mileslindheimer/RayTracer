@@ -26,7 +26,7 @@ int main(int argc, char** args){
             trace << "bad file\n";
         }
         else {
-            trace << "opened successfully \n";
+            trace << "opening " << args[i] << "\n";
             char buffer[30];
             string token;
             while (file >> token) {
