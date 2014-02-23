@@ -15,30 +15,30 @@ void log(char* c) {}
 
 
 int main(int argc, char** args){
-    char* a = 0;
+    char* token = 0;
+    //start writing to trace file
     ofstream trace("tmp/trace.txt");
-    if (argc > 1) {
+    for (int i=1; i<argc; i++) {
         ifstream file;
-        file.open((string) "obj/" + (string) args[1]);
+        file.open((string) "obj/" + (string) args[i]);
         if (!file.good()){
             cout << "bad file\n";
             trace << "bad file\n";
         }
         else {
             trace << "opened successfully \n";
-            while (!file.eof()) {
-                char buffer[10];
-                file.getline(buffer, 10);
-                a = strtok(buffer, " ");
-                cout << a << "\n";
-                trace << a << "\n";
+            char buffer[30];
+            string token;
+            while (file >> token) {
+                //token = strtok(buffer, " ");
+                cout << token << "\n";
+                trace << token << "\n";
             }
+            file.close();
         }
-    } else {
-        cout << "no file\n";
-        trace << "no file\n";
     }
-    trace << "closing file\n";
+    //close trace file
+    trace << "end trace\n";
     trace.close();
     return 0;
 }

@@ -1,4 +1,7 @@
 opened successfully 
 test
 123
-closing file
+opened successfully 
+second
+file
+end trace
