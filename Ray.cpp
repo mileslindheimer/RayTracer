@@ -23,9 +23,7 @@ public:
     Eigen::Vector3f dir(){return direction;}
     float t_min() {return t_minimum;}
     float t_max() {return t_maximum;}
-    void print(){
-        cout << 
-    }
+    
     
 private:
     Point position;

@@ -12,10 +12,11 @@ using namespace std;
 class Point {
 
 public:
-    Point (float v1, float v2, float v3){
-        x=v1;
-        y=v2;
-        z=v3;
+    Point () {x=0;y=0;z=0;}
+    Point (float px, float py, float pz){
+        x=px;
+        y=py;
+        z=pz;
     }
     float getX(void) {
         return x;
@@ -36,25 +37,28 @@ public:
         z=newz;
     }
     void add(Eigen::Vector3f v) {
-        x+=v(0);
-        y+=v(1);
-        z+=v(2);
+        x+=v[0];
+        y+=v[1];
+        z+=v[2];
     }
     void sub(Eigen::Vector3f v) {
-        x-=v(0);
-        y-=v(1);
-        z-=v(2);
+        x-=v[0];
+        y-=v[1];
+        z-=v[2];
     }
-    Eigen::Vector3f sub(Point p) {
+    Eigen::Vector3f sub(Point* p) {
         Eigen::Vector3f v(3);
-        v(0) = x-p.x;
-        v(1) = y-p.y;
-        v(2) = z-p.z;
+        v[0] = x-p->x;
+        v[1] = y-p->y;
+        v[2] = z-p->z;
         return v;
     }
 
-    void toString (void) {
-        printf("<%f,%f,%f>\n", x,y,z);
+    void print(void) {
+        cout << "(" << x << ", " << y << ", " << z << ")\n";
+    }
+    bool equals(Point* p) {
+        return x == p->getX() && y == p->getY() && z == p->getZ();
     }
 private:
     float x,y,z;
