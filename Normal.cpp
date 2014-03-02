@@ -44,9 +44,7 @@ public:
         vec[0]=x; vec[1]=y; vec[2]=z;
         if(!isZero()) vec.normalize();
     }
-    bool isZero(){
-        return x==0 && y==0 && z==0;
-    }
+
     //untested, not sure if need to support both normal+normal and vector+normal
     void add(Eigen::Vector3f v) {
         x+=v[0];
@@ -68,4 +66,7 @@ public:
 private:
     float x,y,z;
     Eigen::Vector3f vec;
+    bool isZero(){
+        return x==0 && y==0 && z==0;
+    }
 };
