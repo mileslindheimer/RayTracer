@@ -5,14 +5,14 @@ EIGEN_PATH=/usr/local/include/eigen3
 
 CC=g++
 
-parse: OBJParser.o my_program.o
-	${CC} -o parse OBJParser.o my_program.o
+parse: OBJParser.o Point.o
+	${CC} -o parse OBJParser.o Point.o
 
-my_program.o: my_program.cpp
-	CC -c  my_program.cpp -I${EIGEN_PATH}
+Point.o: Point.cpp
+	CC -c  Point.cpp -I${EIGEN_PATH}
 
 parse.o: OBJParser.cpp
 	CC -c OBJParser.cpp -I ${PATH}include/
 
 clean:
-	rm -f *.o parse
+	/bin/rm -f *.o parse
