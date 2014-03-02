@@ -12,7 +12,7 @@ PointTest::~PointTest() {
 }
 
 void PointTest::setUp() {
-};
+}
 
 void PointTest::tearDown() {
 }
@@ -22,6 +22,13 @@ void PointTest::testConstructor() {
     CPPUNIT_ASSERT_EQUAL((float)1,p1.getX());
     CPPUNIT_ASSERT_EQUAL((float)-2,p1.getY());
     CPPUNIT_ASSERT_EQUAL((float)0.5, p1.getZ());
+}
+void PointTest::testEquals() {
+    Point p1 (1,-2,0.5);
+    Point p2 (1,-2,0.5);
+    Point p3 (0, 4, 3);
+    CPPUNIT_ASSERT(p1.equals(&p2));
+    CPPUNIT_ASSERT(!p1.equals(&p3));
 }
 void PointTest::testSetters() {
     Point p1 (1,-2,0.5);
@@ -51,7 +58,7 @@ void PointTest::testSub() {
     Point p2 (1,2,3);
     Point p3 (5, 6.5, 4);
     Eigen::Vector3f v2 (4,4.5,1);
-    CPPUNIT_ASSERT_EQUAL(v2,p3.sub(p2));
+    CPPUNIT_ASSERT_EQUAL(v2,p3.sub(&p2));
     
 }
 
