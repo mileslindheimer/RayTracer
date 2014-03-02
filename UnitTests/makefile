@@ -18,7 +18,7 @@ clean:
 # add all additional tests here
 
 PointTest.o: PointTest.cpp PointTest.h	
-	CC -c PointTest.cpp -I${CPPUNIT_PATH}/include
+	CC -c PointTest.cpp -I${CPPUNIT_PATH}/include -I${EIGEN_PATH}
 
 
 

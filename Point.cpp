@@ -6,7 +6,7 @@
 #include <cstring>
 #include <time.h>
 #include <math.h>
-//#include <Eigen/Dense>
+#include <Eigen/Dense>
 using namespace std;
 
 class Point {
@@ -26,18 +26,32 @@ public:
     float getZ(void) {
         return z;
     }
-//    void add(Eigen::Vector3f v) {
-//        x+=v(0);
-//        y+=v(1);
-//        z+=v(2);
-//    }
-//    Eigen::Vector3f add(Point p) {
-//        Eigen::Vector3f v(3);
-//        v(0) = x+p.x;
-//        v(1) = y+p.y;
-//        v(2) = z+p.z;
-//        return v;
-//    }
+    void setX(float newx) {
+        x=newx;
+    }
+    void setY(float newy) {
+        y=newy;
+    }
+    void setZ(float newz) {
+        z=newz;
+    }
+    void add(Eigen::Vector3f v) {
+        x+=v(0);
+        y+=v(1);
+        z+=v(2);
+    }
+    void sub(Eigen::Vector3f v) {
+        x-=v(0);
+        y-=v(1);
+        z-=v(2);
+    }
+    Eigen::Vector3f sub(Point p) {
+        Eigen::Vector3f v(3);
+        v(0) = x-p.x;
+        v(1) = y-p.y;
+        v(2) = z-p.z;
+        return v;
+    }
 
     void toString (void) {
         printf("<%f,%f,%f>\n", x,y,z);

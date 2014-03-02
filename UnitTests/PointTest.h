@@ -9,6 +9,8 @@ class PointTest : public CPPUNIT_NS::TestFixture {
     
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testAdd);
+    CPPUNIT_TEST(testSub);
+    CPPUNIT_TEST(testSetters);
     
     CPPUNIT_TEST_SUITE_END();
     
@@ -21,6 +23,8 @@ public:
 private:
     void testConstructor();
     void testAdd();
+    void testSub();
+    void testSetters();
 };
 
 #endif	/* PointTest_H */
