@@ -12,6 +12,9 @@ using namespace std;
 class Normal {
 
 public:
+    //untested
+    Normal(void){x=0;y=0;z=0;Eigen::Vector3f v(x,y,z);
+        vec = v;}
     Normal (float nx, float ny, float nz){
         x=nx;
         y=ny;
