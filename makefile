@@ -12,7 +12,7 @@ Normal.o: Normal.cpp
 	CC -c Normal.cpp -I${EIGEN_PATH}
 
 Point.o: Point.cpp Point.h
-	CC -c  Point.cpp Point.h -I${EIGEN_PATH}
+	CC -c  Point.cpp -I${EIGEN_PATH}
 
 Ray.o: Ray.cpp Ray.h
 	CC -c  Ray.cpp -I${EIGEN_PATH}
@@ -20,7 +20,7 @@ Ray.o: Ray.cpp Ray.h
 Color.o: Color.cpp Color.h
 	CC -c Color.cpp
 
-BRDF.o: BRDF.cpp
+BRDF.o: BRDF.cpp BRDF.h
 	CC -c BRDF.cpp
 
 Sample.o: Sample.cpp Sample.h

@@ -2,7 +2,7 @@
 #define	BRDFTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../BRDF.cpp"
+#include "../BRDF.h"
 
 class BRDFTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(BRDFTest);
