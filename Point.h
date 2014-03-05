@@ -1,30 +1,25 @@
 
 
-#ifndef ____Point__
-#define ____Point__
+#ifndef Point_H
+#define Point_H
 
-#include <cstdlib>
+//#include <cstdlib>
 #include <iostream>
-#include <fstream>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <time.h>
 #include <math.h>
 #include <Eigen/Dense>
 
 class Point {
 public:
     Point(void);
-    Point (float, float, float);
+    Point (float px, float py, float pz);
     float getX(void);
     float getY(void);
     float getZ(void);
-    void setX(float);
-    void setY(float);
-    void setZ(float);
-    void add(Eigen::Vector3f);
-    void sub(Eigen::Vector3f);
+    void setX(float newx);
+    void setY(float newy);
+    void setZ(float newz);
+    void add(Eigen::Vector3f v);
+    void sub(Eigen::Vector3f v);
     Eigen::Vector3f sub(Point* p);
     void print(void);
     bool equals(Point* p);
@@ -33,4 +28,4 @@ private:
     float x,y,z;
 };
 
-#endif /* defined(____Point__) */
+#endif /* Point_H */

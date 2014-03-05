@@ -2,7 +2,8 @@
 #define	PointTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Point.cpp"
+#include <Eigen/Dense>
+#include "../Point.h"
 
 class PointTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(PointTest);

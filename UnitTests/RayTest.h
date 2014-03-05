@@ -2,7 +2,9 @@
 #define	RayTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Ray.cpp"
+#include <Eigen/Dense>
+#include "../Point.h"
+#include "../Ray.h"
 
 class RayTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(RayTest);

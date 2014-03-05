@@ -1,47 +1,31 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <time.h>
-#include <math.h>
-#include <Eigen/Dense>
-#include "Point.h"
+#include "Ray.h"
+
 using namespace std;
 
-class Ray {
 
-public:
-    Ray (Point p, Eigen::Vector3f d, float min, float max) {
+    Ray::Ray (Point p, Eigen::Vector3f d, float min, float max) {
         position = p;
         direction = d;
         t_minimum = min;
         t_maximum = max;
     }
-    Point pos() {
+    Point Ray::pos() {
         return position;
     }
-    Eigen::Vector3f dir(){
+    Eigen::Vector3f Ray::dir(){
         return direction;
     }
-    void setPos(Point p) {
+    void Ray::setPos(Point p) {
         position = p;
     }
-    void setDir(Eigen::Vector3f d) {
+    void Ray::setDir(Eigen::Vector3f d) {
         direction = d;
     }
-    float t_min() {
+    float Ray::t_min() {
         return t_minimum;
     }
-    float t_max() {
+    float Ray::t_max() {
         return t_maximum;
     }
     
-    
-private:
-    Point position;
-    Eigen::Vector3f direction;
-    float t_minimum, t_maximum;
-    
-};
+

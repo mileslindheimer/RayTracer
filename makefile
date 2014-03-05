@@ -11,10 +11,10 @@ parse: OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Cam
 Normal.o: Normal.cpp
 	CC -c Normal.cpp -I${EIGEN_PATH}
 
-Point.o: Point.cpp Point.h
-	CC -c  Point.cpp -I${EIGEN_PATH}
+Point.o: Point.cpp
+	CC -c  Point.cpp Point.h -I${EIGEN_PATH}
 
-Ray.o: Ray.cpp
+Ray.o: Ray.cpp Ray.h
 	CC -c  Ray.cpp -I${EIGEN_PATH}
 
 Color.o: Color.cpp

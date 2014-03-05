@@ -7,7 +7,7 @@
 #include <vector>
 #include <Eigen/Dense>
 //I'll change these to .h files once I make them
-#include "Ray.cpp"
+#include "Ray.h"
 #include "Sample.cpp"
 #include "Point.h"
 using namespace Eigen;
