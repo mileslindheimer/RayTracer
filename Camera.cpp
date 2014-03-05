@@ -1,14 +1,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 #include <cstring>
 #include <math.h>
 #include <vector>
 #include <Eigen/Dense>
-//I'll change these to .h files once I make them
 #include "Ray.h"
-#include "Sample.cpp"
+#include "Sample.h"
 #include "Point.h"
 using namespace Eigen;
 

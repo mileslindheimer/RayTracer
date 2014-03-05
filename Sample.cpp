@@ -1,37 +1,26 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <time.h>
-#include <math.h>
+#include "Sample.h"
+
 using namespace std;
 
-class Sample {
 
-public:
-    Sample () {x=0;y=0;}
-    Sample (float sx, float sy){
+Sample::Sample () {x=0;y=0;}
+    Sample::Sample (float sx, float sy){
         x=sx;
         y=sy;
     }
-    float getX(void) {
+    float Sample::getX(void) {
         return x;
     }
-    float getY(void) {
+    float Sample::getY(void) {
         return y;
     }
-    void setX(float newx) {
+    void Sample::setX(float newx) {
         x=newx;
     }
-    void setY(float newy) {
+    void Sample::setY(float newy) {
         y=newy;
     }
 
-    bool equals(Sample* p) {
+    bool Sample::equals(Sample* p) {
         return x == p->getX() && y == p->getY();
     }
-private:
-    float x,y;
-};

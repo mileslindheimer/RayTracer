@@ -2,7 +2,7 @@
 #define	SampleTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Sample.cpp"
+#include "../Sample.h"
 
 class SampleTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(SampleTest);

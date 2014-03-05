@@ -23,7 +23,7 @@ Color.o: Color.cpp Color.h
 BRDF.o: BRDF.cpp
 	CC -c BRDF.cpp
 
-Sample.o: Sample.cpp
+Sample.o: Sample.cpp Sample.h
 	CC -c Sample.cpp
 
 LocalGeo.o: LocalGeo.cpp
