@@ -6,8 +6,8 @@ CPPUNIT_PATH=/usr/local/
 EIGEN_PATH=/usr/local/include/eigen3
 CC=g++
 # add <FILENAME>.o to first and second lines
-runtests: runtests.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o LocalGeoTest.o
-	CC -o runtests runtests.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o LocalGeoTest.o -L${CPPUNIT_PATH}/lib -lstdc++ -lcppunit -ldl
+runtests: runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o LocalGeoTest.o
+	CC -o runtests runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o LocalGeoTest.o -L${CPPUNIT_PATH}/lib -lstdc++ -lcppunit -ldl
 
 runtests.o: runtests.cpp
 	CC -c runtests.cpp -I${CPPUNIT_PATH}/include

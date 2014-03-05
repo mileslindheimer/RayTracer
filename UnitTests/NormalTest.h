@@ -2,7 +2,7 @@
 #define	NormalTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Normal.cpp"
+#include "../Normal.h"
 
 class NormalTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(NormalTest);

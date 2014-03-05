@@ -6,7 +6,7 @@
 #include <cstring>
 #include <time.h>
 #include <math.h>
-#include "Normal.cpp"
+#include "Normal.h"
 #include "Point.h"
 using namespace std;
 
