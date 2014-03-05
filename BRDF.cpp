@@ -6,7 +6,7 @@
 #include <cstring>
 #include <time.h>
 #include <math.h>
-#include "Color.cpp"
+#include "Color.h"
 //#include <Eigen/Dense>
 using namespace std;
 

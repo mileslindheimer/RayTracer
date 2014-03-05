@@ -2,7 +2,7 @@
 #define	ColorTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../Color.cpp"
+#include "../Color.h"
 
 class ColorTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(ColorTest);
