@@ -7,7 +7,7 @@
 #include <time.h>
 #include <math.h>
 #include "Normal.cpp"
-#include "Point.cpp"
+#include "Point.h"
 using namespace std;
 
 class LocalGeo {

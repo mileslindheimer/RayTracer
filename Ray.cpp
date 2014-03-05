@@ -7,7 +7,7 @@
 #include <time.h>
 #include <math.h>
 #include <Eigen/Dense>
-#include "Point.cpp"
+#include "Point.h"
 using namespace std;
 
 class Ray {
@@ -24,6 +24,12 @@ public:
     }
     Eigen::Vector3f dir(){
         return direction;
+    }
+    void setPos(Point p) {
+        position = p;
+    }
+    void setDir(Eigen::Vector3f d) {
+        direction = d;
     }
     float t_min() {
         return t_minimum;
