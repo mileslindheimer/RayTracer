@@ -5,9 +5,11 @@
 #include <iostream>
 #include <string>
 #include "Color.h"
+#include "Film.h"
+#include "Sample.h"
 
-#define width 100
-#define height 100
+#define width 600
+#define height 600
 
 using namespace std;
 
@@ -18,19 +20,24 @@ class OBJParser {
 unsigned char foo[] = {(unsigned char)1,(unsigned char)0,(unsigned char)0};
 
 int main(int argc, char** args){
-    unsigned char r,g,b;
-    Color image[width][height];
-    FILE *output = fopen("output.ppm", "wb");
-    fprintf(output, "P6\n%d %d\n255\n", width, height);
-    for (int i = 0; i < width; i++) {
-        for (int j = 0; j < height; j++) {
-            r = (unsigned char) j%255;
-            g = (unsigned char) i%255;
-            b = (unsigned char) j%255;
-            fprintf(output, "%c%c%c", r,g,b );
-        }
-    }
-    fclose(output);
+    Film film (100, 100);
+    Color c1(1,0,0);
+    Sample s1(5,30);
+    film.commit(s1, c1);
+    film.writeImage();
+//    unsigned char r,g,b;
+//    Color image[width][height];
+//    FILE *output = fopen("output.ppm", "wb");
+//    fprintf(output, "P6\n%d %d\n255\n", width, height);
+//    for (int i = 0; i < width; i++) {
+//        for (int j = 0; j < height; j++) {
+//            r = (unsigned char) 255*((float)j/(2*i));
+//            g = (unsigned char) 255*0;
+//            b = (unsigned char) 255*(float)i/(2*j);
+//            fprintf(output, "%c%c%c", r,g,b );
+//        }
+//    }
+//    fclose(output);
     
     
     

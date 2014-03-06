@@ -5,8 +5,8 @@ EIGEN_PATH=/usr/local/include/eigen3
 
 CC=g++
 
-parse: OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o
-	${CC} -o parse OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o
+parse: OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o
+	${CC} -o parse OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o
 
 Normal.o: Normal.cpp Normal.h
 	CC -c Normal.cpp -I${EIGEN_PATH}
@@ -31,6 +31,9 @@ LocalGeo.o: LocalGeo.cpp LocalGeo.h
 
 Camera.o: Camera.cpp
 	CC -c Camera.cpp -I${EIGEN_PATH}
+
+Film.o: Film.cpp Film.h
+	CC -c Film.cpp
 
 parse.o: OBJParser.cpp
 	CC -c OBJParser.cpp -I ${PATH}include/
