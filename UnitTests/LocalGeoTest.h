@@ -2,7 +2,7 @@
 #define	LocalGeoTest_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "../LocalGeo.cpp"
+#include "../LocalGeo.h"
 
 class LocalGeoTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(LocalGeoTest);

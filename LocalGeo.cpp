@@ -1,40 +1,26 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <time.h>
-#include <math.h>
-#include "Normal.h"
-#include "Point.h"
+#include "LocalGeo.h"
+
 using namespace std;
 
-class LocalGeo {
 
-public:
-    LocalGeo (Point p, Normal n){
+LocalGeo::LocalGeo (Point p, Normal n){
         pos=p;
         normal=n;
     }
-    Point getPos(void) {
+    Point LocalGeo::getPos(void) {
         return pos;
     }
-    Normal getNormal(void) {
+    Normal LocalGeo::getNormal(void) {
         return normal;
     }
 
-    void setPos(Point newp) {
+    void LocalGeo::setPos(Point newp) {
         pos=newp;
     }
-    void setNormal(Normal newn) {
+    void LocalGeo::setNormal(Normal newn) {
         normal=newn;
     }
     //untested until normal class finished
 //    bool equals(LocalGeo* g) {
 //        return g->getPos().equals(pos) && g->getNormal().equals(normal);
 //    }
-private:
-    Point pos;
-    Normal normal;
-};

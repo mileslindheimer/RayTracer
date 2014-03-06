@@ -26,7 +26,7 @@ BRDF.o: BRDF.cpp BRDF.h
 Sample.o: Sample.cpp Sample.h
 	CC -c Sample.cpp
 
-LocalGeo.o: LocalGeo.cpp
+LocalGeo.o: LocalGeo.cpp LocalGeo.h
 	CC -c LocalGeo.cpp -I${EIGEN_PATH}
 
 Camera.o: Camera.cpp
