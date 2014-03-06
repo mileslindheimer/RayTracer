@@ -40,8 +40,9 @@ void Camera::generateRay(Sample& sample, Ray* ray){
     u=(((2*sample.getX()-plane_w)/plane_w)*tan(fovx));
     v=(((2*sample.getY()-plane_h)/plane_h)*tan(fovy));
     w=-1;
-//    ray->setPos(eye);
-//	ray->direction = ray;
+    Vector3f dir(u,v,w);
+    ray->setPos(eye);
+	ray->setDir(dir);
 //	ray->t_minimum = 0.0; // fix these later
 //	ray->t_maximum = 0.0;
 }

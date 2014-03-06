@@ -12,10 +12,10 @@ Normal.o: Normal.cpp Normal.h
 	CC -c Normal.cpp -I${EIGEN_PATH}
 
 Point.o: Point.cpp Point.h
-	CC -c  Point.cpp -I${EIGEN_PATH}
+	CC -c Point.cpp -I${EIGEN_PATH}
 
 Ray.o: Ray.cpp Ray.h
-	CC -c  Ray.cpp -I${EIGEN_PATH}
+	CC -c Ray.cpp -I${EIGEN_PATH}
 
 Color.o: Color.cpp Color.h
 	CC -c Color.cpp
