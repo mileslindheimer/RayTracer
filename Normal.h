@@ -1,9 +1,6 @@
-
-
 #ifndef Normal_H
 #define Normal_H
 
-//#include <cstdlib>
 #include <iostream>
 #include <math.h>
 #include <Eigen/Dense>
@@ -12,7 +9,6 @@
 class Normal {
     
 public:
-    //untested
     Normal(void);
     Normal (float nx, float ny, float nz);
     float getX(void);
@@ -30,7 +26,8 @@ public:
 private:
     float x,y,z;
     Vector3f vec;
-    bool isZero(){return x==0 && y==0 && z==0;}
+    bool isZero(){
+        return x==0 && y==0 && z==0;}
 };
 
 #endif /* Normal_H */
