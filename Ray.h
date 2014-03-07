@@ -9,20 +9,21 @@
 #include <math.h>
 #include <Eigen/Dense>
 #include "Point.h"
+#define Vector3f Eigen::Vector3f
 
 class Ray {
 public:
-    Ray (Point, Eigen::Vector3f, float, float);
+    Ray (Point, Vector3f, float, float);
     Point pos(void);
-    Eigen::Vector3f dir(void);
+    Vector3f dir(void);
     void setPos(Point);
-    void setDir(Eigen::Vector3f);
+    void setDir(Vector3f);
     float t_min(void);
     float t_max(void);
 
 private:
     Point position;
-    Eigen::Vector3f direction;
+    Vector3f direction;
     float t_minimum, t_maximum;
 };
 

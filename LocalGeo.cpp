@@ -1,7 +1,5 @@
 #include "LocalGeo.h"
 
-using namespace std;
-
 
 LocalGeo::LocalGeo (Point p, Normal n){
         pos=p;

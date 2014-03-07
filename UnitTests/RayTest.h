@@ -5,6 +5,7 @@
 #include <Eigen/Dense>
 #include "../Point.h"
 #include "../Ray.h"
+#define Vector3f Eigen::Vector3f
 
 class RayTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(RayTest);

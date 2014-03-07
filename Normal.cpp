@@ -1,15 +1,14 @@
 #include "Normal.h"
-using namespace std;
 
 
     //untested
-Normal::Normal(void){x=0;y=0;z=0;Eigen::Vector3f v(x,y,z);
+Normal::Normal(void){x=0;y=0;z=0;Vector3f v(x,y,z);
         vec = v;}
     Normal::Normal (float nx, float ny, float nz){
         x=nx;
         y=ny;
         z=nz;
-        Eigen::Vector3f v(nx,ny,nz);
+        Vector3f v(nx,ny,nz);
         vec = v;
         if(!isZero()) vec.normalize();
     }
@@ -39,7 +38,7 @@ Normal::Normal(void){x=0;y=0;z=0;Eigen::Vector3f v(x,y,z);
     }
 
     //untested, not sure if need to support both normal+normal and vector+normal
-    void Normal::add(Eigen::Vector3f v) {
+    void Normal::add(Vector3f v) {
         x+=v[0];
         y+=v[1];
         z+=v[2];
@@ -47,7 +46,7 @@ Normal::Normal(void){x=0;y=0;z=0;Eigen::Vector3f v(x,y,z);
         if(!isZero()) vec.normalize();
     }
     //untested
-    void Normal::sub(Eigen::Vector3f v) {
+    void Normal::sub(Vector3f v) {
         x-=v[0];
         y-=v[1];
         z-=v[2];

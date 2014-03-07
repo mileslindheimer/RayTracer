@@ -4,6 +4,7 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <Eigen/Dense>
 #include "../Point.h"
+#define Vector3f Eigen::Vector3f
 
 class PointTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(PointTest);

@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
+#define cout std::cout
 
 class Color {
     

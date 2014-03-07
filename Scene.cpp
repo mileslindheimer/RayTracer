@@ -7,7 +7,7 @@
 #include <time.h>
 #include <math.h>
 #include <Eigen/Dense>
-using namespace std;
+#define cout std::cout
 /*
 From class notes:
 
@@ -33,6 +33,7 @@ private:
     Sampler sampler;
     Raytracer raytracer;
     Camera camera;
+    Color color;
     } ;
 
 #endif
@@ -41,7 +42,7 @@ Scene::Scene(float input_x, float input_y, Camera input_camera) // will need mor
            
     {
         full_x=input_x;
-        ful_y = input_y;
+        full_y = input_y;
         camera = input_camera;
        
     }
@@ -49,7 +50,10 @@ Scene::Scene(float input_x, float input_y, Camera input_camera) // will need mor
            
 void Scene::render() {
 	while (sampler.getSample(&sample)) {
-    //do something here
+        camera.generateRay(sample, &ray);
+        raytracer.trace(ray, 10, &color);
+        film.commit(sample, color);
     }
+    film.writeImage();
 
 }

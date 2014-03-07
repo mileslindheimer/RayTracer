@@ -7,6 +7,7 @@
 #include <iostream>
 #include <math.h>
 #include <Eigen/Dense>
+#define Vector3f Eigen::Vector3f
 
 class Normal {
     
@@ -21,14 +22,14 @@ public:
     void setY(float newy);
     void setZ(float newz);
     
-    void add(Eigen::Vector3f v);
+    void add(Vector3f v);
 
-    void sub(Eigen::Vector3f v);
+    void sub(Vector3f v);
     
     
 private:
     float x,y,z;
-    Eigen::Vector3f vec;
+    Vector3f vec;
     bool isZero(){return x==0 && y==0 && z==0;}
 };
 

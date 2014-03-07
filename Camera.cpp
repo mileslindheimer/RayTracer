@@ -8,7 +8,7 @@
 #include "Ray.h"
 #include "Sample.h"
 #include "Point.h"
-using namespace Eigen;
+#define Vector3f Eigen::Vector3f
 
 /*The :: operator is called the scope-resolution operator and does just that, it resolves scope. So, by prefixing a type-name with this, it tells your compiler to look in the global namespace for the type.
  - from Stack Overflow */

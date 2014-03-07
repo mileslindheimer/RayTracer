@@ -1,9 +1,7 @@
 #include "Ray.h"
 
-using namespace std;
 
-
-    Ray::Ray (Point p, Eigen::Vector3f d, float min, float max) {
+    Ray::Ray (Point p, Vector3f d, float min, float max) {
         position = p;
         direction = d;
         t_minimum = min;
@@ -12,13 +10,13 @@ using namespace std;
     Point Ray::pos() {
         return position;
     }
-    Eigen::Vector3f Ray::dir(){
+    Vector3f Ray::dir(){
         return direction;
     }
     void Ray::setPos(Point p) {
         position = p;
     }
-    void Ray::setDir(Eigen::Vector3f d) {
+    void Ray::setDir(Vector3f d) {
         direction = d;
     }
     float Ray::t_min() {

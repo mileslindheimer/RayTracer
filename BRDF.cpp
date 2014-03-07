@@ -1,9 +1,5 @@
 #include "BRDF.h"
 
-using namespace std;
-
-
-
 
 BRDF::BRDF (Color d, Color s, Color a, Color r){
         kd=d;

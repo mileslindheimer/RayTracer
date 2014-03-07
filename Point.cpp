@@ -1,7 +1,5 @@
 #include "Point.h"
 
-using namespace std;
-
 Point::Point () {x=0;y=0;z=0;}
 Point::Point (float px, float py, float pz){
         x=px;
@@ -26,18 +24,18 @@ Point::Point (float px, float py, float pz){
     void Point::setZ(float newz) {
         z=newz;
     }
-    void Point::add(Eigen::Vector3f v) {
+    void Point::add(Vector3f v) {
         x+=v[0];
         y+=v[1];
         z+=v[2];
     }
-    void Point::sub(Eigen::Vector3f v) {
+    void Point::sub(Vector3f v) {
         x-=v[0];
         y-=v[1];
         z-=v[2];
     }
-    Eigen::Vector3f Point::sub(Point* p) {
-        Eigen::Vector3f v(3);
+    Vector3f Point::sub(Point* p) {
+        Vector3f v(3);
         v[0] = x-p->x;
         v[1] = y-p->y;
         v[2] = z-p->z;

@@ -1,6 +1,5 @@
 #include "Sample.h"
 
-using namespace std;
 
 
 Sample::Sample () {x=0;y=0;}

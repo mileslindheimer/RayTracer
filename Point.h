@@ -7,6 +7,8 @@
 #include <iostream>
 #include <math.h>
 #include <Eigen/Dense>
+#define Vector3f Eigen::Vector3f
+#define cout std::cout
 
 class Point {
 public:
@@ -18,9 +20,9 @@ public:
     void setX(float newx);
     void setY(float newy);
     void setZ(float newz);
-    void add(Eigen::Vector3f v);
-    void sub(Eigen::Vector3f v);
-    Eigen::Vector3f sub(Point* p);
+    void add(Vector3f v);
+    void sub(Vector3f v);
+    Vector3f sub(Point* p);
     void print(void);
     bool equals(Point* p);
 

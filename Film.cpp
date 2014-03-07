@@ -1,6 +1,5 @@
 #include "Film.h"
 
-using namespace std;
 
 
 Film::Film(int width, int height){

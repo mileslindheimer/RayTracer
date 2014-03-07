@@ -19,7 +19,7 @@ void RayTest::tearDown() {
 
 void RayTest::testConstructor() {
     Point pos1 (1, 2, 3);
-    Eigen::Vector3f dir1 (4,4,6);
+    Vector3f dir1 (4,4,6);
     Ray r1 (pos1, dir1, 1, 10);
     CPPUNIT_ASSERT(r1.pos().equals(&pos1));
     CPPUNIT_ASSERT_EQUAL(dir1, r1.dir());
