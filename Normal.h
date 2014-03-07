@@ -22,9 +22,9 @@ public:
     void setY(float newy);
     void setZ(float newz);
     
-    void add(Vector3f v);
+    void add(Normal);
 
-    void sub(Vector3f v);
+    void sub(Normal);
     
     
 private:
