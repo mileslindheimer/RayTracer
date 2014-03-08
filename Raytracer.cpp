@@ -27,14 +27,13 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     }
     in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
     for(int i=0; i<numLights; i++){
-        // should be lray not ray, just getting to compile
-        lights[i].generateLightRay(in->getLocal(), &ray, color);
+        lights[i].generateLightRay(in->getLocal(), lights[i].getRay(), color);
         
 //        if (!in->getPrimitive()->intersectP(ray)){
 //            *color->add(shading(in->getLocal(), brdf, ray, lcolor));
 //        }
     }
-//    if(brdf.kr > 0){
+//    if(brdf.getKR() > 0){
 //        Ray reflectRay(in->getLocal(), ray);
         //should be tempColor, compiling...
 //        trace(reflectRay, depth+1; &color);
