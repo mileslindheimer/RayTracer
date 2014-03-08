@@ -11,6 +11,7 @@
 class BRDF {
     
 public:
+    BRDF(void);
     BRDF (Color d, Color s, Color a, Color r);
     Color getKD(void);
     Color getKS(void);

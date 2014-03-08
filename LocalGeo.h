@@ -12,6 +12,7 @@
 class LocalGeo {
     
 public:
+    LocalGeo();
     LocalGeo (Point p, Normal n);
     Point getPos(void);
     Normal getNormal(void);
