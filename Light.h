@@ -1,5 +1,3 @@
-Ï
-
 #ifndef Light_H
 #define Light_H
 

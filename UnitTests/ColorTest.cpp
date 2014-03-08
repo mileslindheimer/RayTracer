@@ -19,7 +19,7 @@ void ColorTest::tearDown() {
 
 void ColorTest::testConstructor() {
     Color c1 (1,-2,0.5);
-    CPPUNIT_ASSERT_EQUAL((float)1,c1.getR());
+    CPPUNIT_ASSERT_EQUAL_MESSAGE("test",(float)1,c1.getR());
     CPPUNIT_ASSERT_EQUAL((float)-2,c1.getG());
     CPPUNIT_ASSERT_EQUAL((float)0.5, c1.getB());
 }

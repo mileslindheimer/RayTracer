@@ -1,20 +1,43 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#define vector std::vector
- 
+#include "RayTracer.h"
 
-
-Camera camera;
-
+class RayTracer {
+public:
+    RayTracer();
+    void trace(Ray& ray, int depth, Color* color);
+private:
+    int maxDepth;
+    int numLights;
+    Light lights[10];
+    BRDF brdf;
+    float thit;
+    Intersection* in;
 
     
-  
+};
 
-int main(int argc, char **argv){
-        int window_width = 1000;
-		int window_height = 1000; // these need to be changed to getwindow size x and y
-		camera = Camera(vec3(0,0,0), window_width,window_height);
+void RayTracer::trace(Ray& ray, int depth, Color* color){
+    maxDepth = 10;
+    if(depth > maxDepth){
+        //color black
+        return;
+    }
+    if(!in->getPrimitive()->intersect(ray, &thit, in)){
+        //color black
+        return;
+    }
+    in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
+    for(int i=0; i<numLights; i++){
+        // should be lray not ray, just getting to compile
+        lights[i].generateLightRay(in->getLocal(), &ray, color);
         
-
+//        if (!in->getPrimitive()->intersectP(ray)){
+//            *color->add(shading(in->getLocal(), brdf, ray, lcolor));
+//        }
+    }
+//    if(brdf.kr > 0){
+//        Ray reflectRay(in->getLocal(), ray);
+        //should be tempColor, compiling...
+//        trace(reflectRay, depth+1; &color);
+//        *color->add(color->mul(brdf->getKR()));
+//    }
 }

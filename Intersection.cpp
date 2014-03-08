@@ -13,12 +13,16 @@ Intersection::Intersection(const Intersection &I){
 }
 //Intersection::Intersection & operator=(const Intersection &I){
 //}
-LocalGeo Intersection::getLocal(void){
+LocalGeo& Intersection::getLocal(void){
     return localGeo;
 }
 //Primitive& Intersection::getPrimitive(void){
 //    return &primitive;
 //}
+
+Primitive* Intersection::getPrimitive(){
+    return primitive;
+}
 
 void Intersection::setLocalGeo(LocalGeo g){
     localGeo=g;

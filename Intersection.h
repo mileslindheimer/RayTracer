@@ -18,9 +18,9 @@ public:
     ~Intersection();
     Intersection(const Intersection &I);
 //    Intersection & operator=(const Intersection &I);
-    LocalGeo getLocal(void);
+    LocalGeo& getLocal(void);
 //    Primitive& getPrimitive(void);
-    
+    Primitive* getPrimitive();
     void setLocalGeo(LocalGeo);
     void setPrimitive(Primitive&);
 
