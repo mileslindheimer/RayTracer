@@ -10,10 +10,12 @@
 #include "Ray.h"
 #include "BRDF.h"
 #include "Primitive.h"
+class Primitive;
 
 class Intersection {
     
 public:
+    Intersection();
     Intersection (LocalGeo, Primitive&);
     ~Intersection();
     Intersection(const Intersection &I);
@@ -27,6 +29,7 @@ public:
 private:
     LocalGeo localGeo;
     Primitive* primitive;
+    
 };
 
 

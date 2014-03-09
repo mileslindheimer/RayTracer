@@ -1,11 +1,14 @@
 #include "Intersection.h"
 
+Intersection::Intersection(){
+    
+}
 
 Intersection::Intersection (LocalGeo, Primitive&){
 }
 Intersection::~Intersection(){
-    delete primitive;
-    primitive=NULL;
+    //delete primitive;
+    //primitive=NULL;
 }
 Intersection::Intersection(const Intersection &I){
     localGeo=I.localGeo;

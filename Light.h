@@ -12,8 +12,7 @@
 class Light {
     
 public:
-    virtual void generateLightRay(LocalGeo& local, Ray* lray, Color* lcolor);
-    virtual Ray* getRay();
+    void generateLightRay(LocalGeo& local, Ray* lray, Color* lcolor);
 
 };
 

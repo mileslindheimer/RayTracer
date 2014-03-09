@@ -5,8 +5,8 @@ EIGEN_PATH=/usr/local/include/eigen3
 
 CC=g++
 
-parse: OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o Material.o Intersection.o RayTracer.o
-	${CC} -o parse OBJParser.o Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o Material.o Intersection.o RayTracer.o
+parse: Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o Material.o testsphere.o Intersection.o PointLight.o RayTracer.o OBJParser.o
+	${CC} -o parse Normal.o Point.o Ray.o Color.o BRDF.o Sample.o LocalGeo.o Camera.o Film.o Material.o testsphere.o Intersection.o PointLight.o RayTracer.o OBJParser.o
 
 Normal.o: Normal.cpp Normal.h
 	CC -c Normal.cpp -I${EIGEN_PATH}
@@ -38,14 +38,20 @@ Film.o: Film.cpp Film.h
 Material.o: Material.cpp Material.h
 	CC -c Material.cpp -I${EIGEN_PATH}
 
+testsphere.o: testsphere.cpp testsphere.h
+	CC -c testsphere.cpp -I${EIGEN_PATH}
+
 Intersection.o: Intersection.cpp Intersection.h
 	CC -c Intersection.cpp -I${EIGEN_PATH}
+
+PointLight.o: PointLight.cpp PointLight.h Light.h
+	CC -c PointLight.cpp -I${EIGEN_PATH}
 
 RayTracer.o: RayTracer.cpp RayTracer.h
 	CC -c RayTracer.cpp -I${EIGEN_PATH}
 
-parse.o: OBJParser.cpp
-	CC -c OBJParser.cpp -I ${PATH}include/
+parse.o: OBJParser.cpp OBJParser.h
+	CC -c OBJParser.cpp -I${EIGEN_PATH}
 
 clean:
 	/bin/rm -f *.o parse

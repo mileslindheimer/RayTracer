@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
-#include <Eigen/Dense>
+#include "Eigen/Dense"
 #include "Point.h"
 #define Vector3f Eigen::Vector3f
 

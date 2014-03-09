@@ -1,28 +1,27 @@
-
 #include "OBJParser.h"
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include "Color.h"
-#include "Film.h"
-#include "Sample.h"
+#include "Eigen/Dense"
+#include "testsphere.h"
+#define Vector3f Eigen::Vector3f
+#define cout std::cout
 
-#define width 600
-#define height 600
+#define width 500
+#define height 500
 
 using namespace std;
 
-class OBJParser {
-    
-};
 
 unsigned char foo[] = {(unsigned char)1,(unsigned char)0,(unsigned char)0};
 
 int main(int argc, char** args){
     Film film (100, 100);
-    Color c1(1,0,0);
+    Color c1(0,0,0);
     Sample s1(5,30);
+    Point p(1,1,0);
+    Vector3f v(0,0,-1);
+    Ray ray(p, v, 1, 5);
+    RayTracer rayTracer;
+    rayTracer.trace(ray, 1, &c1);
+    cout << "here\n";
     film.commit(s1, c1);
     film.writeImage();
 //    unsigned char r,g,b;

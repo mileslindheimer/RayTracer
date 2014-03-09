@@ -6,7 +6,7 @@
 //#include <cstdlib>
 #include <iostream>
 #include <math.h>
-#include <Eigen/Dense>
+#include "Eigen/Dense"
 #define Vector3f Eigen::Vector3f
 #define cout std::cout
 

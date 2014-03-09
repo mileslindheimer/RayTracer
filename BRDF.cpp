@@ -1,6 +1,7 @@
 #include "BRDF.h"
 
-
+BRDF::BRDF(){
+}
 BRDF::BRDF (Color d, Color s, Color a, Color r){
         kd=d;
         ks=s;
