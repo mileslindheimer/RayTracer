@@ -20,6 +20,8 @@ public:
     void setDir(Vector3f);
     float t_min(void);
     float t_max(void);
+    void set_t_min(float t){t_minimum=t;}
+    void set_t_max(float t){t_maximum=t;}
 
 private:
     Point position;
