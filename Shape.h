@@ -6,6 +6,7 @@
 class Shape
 {
 public:
+<<<<<<< HEAD
     bool intersect(Ray& ray, float* thit, LocalGeo* local){}
     bool intersectP(Ray& ray){}
     void createSphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
@@ -13,8 +14,36 @@ public:
     bool isTriangle();
     bool isCircle();
     
+=======
+    bool intersect(Ray& ray, float* thit, LocalGeo* local);
+    bool intersectP(Ray& ray);
+ 
+
+};
+
+
+class Sphere : public Shape
+{
+public:
+    void createSphere(float centerx,float centery, centerz, float radius, float tmin, float tmax);
+    bool intersect(Ray& ray, float* thit, LocalGeo* local);
+    bool intersectP(Ray& ray);
+>>>>>>> 54eb206fedede9173d0fb5ec56026259af6104c0
 private:
     float tmin, tmax, radius;
     Vector3f centervec;
 
+    
 };
+
+class Triangle : public Shape
+{
+public:
+    void createTriangle(float centerx,float centery, float radius); //fix later
+	bool intersect(Ray& ray, double* thit, LocalGeo* local);
+	bool intersectP(Ray& ray);
+    
+    
+};
+
+#endif
