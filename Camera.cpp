@@ -1,27 +1,8 @@
-#include <cstdlib>
-#include <iostream>
-#include <fstream>
-#include <cstring>
-#include <math.h>
-#include <vector>
-#include <Eigen/Dense>
-#include "Ray.h"
-#include "Sample.h"
-#include "Point.h"
-#define Vector3f Eigen::Vector3f
+#include "Camera.h"
 
 /*The :: operator is called the scope-resolution operator and does just that, it resolves scope. So, by prefixing a type-name with this, it tells your compiler to look in the global namespace for the type.
  - from Stack Overflow */
 
-//4d vectors
-class Camera {
-    Camera (Point, int, int);
-    void generateRay(Sample&, Ray*);
-private:
-    Point eye;
-    int plane_w;
-    int plane_h;
-};
 
 Camera::Camera(Point eye_input, int width, int height){
 	eye = eye_input;
