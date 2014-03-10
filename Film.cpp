@@ -13,6 +13,7 @@ void Film::commit(Sample sample, Color color){
 
 void Film::writeImage(){
     unsigned char r,g,b;
+
     FILE *output = fopen("output.ppm", "wb");
     fprintf(output, "P6\n%d %d\n255\n", w, h);
     for (int i = 0; i < w; i++) {
