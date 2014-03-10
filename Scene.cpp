@@ -22,21 +22,7 @@ From class notes:
 */
 
 
-class Scene
-{
-public:
-    Scene(int x, int y, Camera* cam);
-    void render();
-private:
-    int full_x, full_y;
-    Ray ray;
-    Sampler sampler;
-    Raytracer raytracer;
-    Camera camera;
-    Color color;
-    } ;
-
-#endif
+ 
            
 Scene::Scene(float input_x, float input_y, Camera input_camera) // will need more args
            
