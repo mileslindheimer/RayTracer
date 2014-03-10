@@ -6,8 +6,8 @@ CPPUNIT_PATH=/usr/local/
 EIGEN_PATH=/usr/local/include/eigen3
 CC=g++
 # add <FILENAME>.o to first and second lines
-runtests: runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o ../LocalGeo.o LocalGeoTest.o
-	CC -o runtests runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o ../LocalGeo.o LocalGeoTest.o -L${CPPUNIT_PATH}/lib -lstdc++ -lcppunit -ldl
+runtests: runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Transformation.o TransformationTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o ../LocalGeo.o LocalGeoTest.o
+	CC -o runtests runtests.o ../Normal.o NormalTest.o ../Point.o PointTest.o ../Ray.o RayTest.o ../Transformation.o TransformationTest.o ../Color.o ColorTest.o ../BRDF.o BRDFTest.o ../Sample.o SampleTest.o ../LocalGeo.o LocalGeoTest.o -L${CPPUNIT_PATH}/lib -lstdc++ -lcppunit -ldl
 
 runtests.o: runtests.cpp
 	CC -c runtests.cpp -I${CPPUNIT_PATH}/include
@@ -25,6 +25,9 @@ PointTest.o: PointTest.cpp PointTest.h
 
 RayTest.o: RayTest.cpp RayTest.h	
 	CC -c RayTest.cpp -I${CPPUNIT_PATH}/include -I${EIGEN_PATH}
+
+TransformationTest.o: TransformationTest.cpp TransformationTest.h	
+	CC -c TransformationTest.cpp -I${CPPUNIT_PATH}/include -I${EIGEN_PATH}
 
 ColorTest.o: ColorTest.cpp ColorTest.h	
 	CC -c ColorTest.cpp -I${CPPUNIT_PATH}/include -I${EIGEN_PATH}
