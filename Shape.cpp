@@ -26,7 +26,7 @@ bool Sphere::intersectP(Ray &ray){
     float discriminant = pow(b,2.0)-(4*a*c);
     
     
-    if(discrim < 0){
+    if(discriminant < 0){
 		return false;
 	}
     
