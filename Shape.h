@@ -1,4 +1,7 @@
-#include <vector> 
+#ifndef Shape_H
+#define Shape_H
+
+#include <vector>
 #include "Ray.h"
 #include "LocalGeo.h"
 #include "Eigen/Dense"
@@ -6,17 +9,14 @@
 class Shape
 {
 public:
-<<<<<<< HEAD
-    bool intersect(Ray& ray, float* thit, LocalGeo* local){}
-    bool intersectP(Ray& ray){}
+    virtual bool intersect(Ray& ray, float* thit, LocalGeo* local);
+    virtual bool intersectP(Ray& ray);
     void createSphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
     void createTriangle(float centerx,float centery, float radius); //fix later
     bool isTriangle();
     bool isCircle();
     
-=======
-    bool intersect(Ray& ray, float* thit, LocalGeo* local);
-    bool intersectP(Ray& ray);
+
  
 
 };
@@ -25,10 +25,10 @@ public:
 class Sphere : public Shape
 {
 public:
-    void createSphere(float centerx,float centery, centerz, float radius, float tmin, float tmax);
+    void createSphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
     bool intersect(Ray& ray, float* thit, LocalGeo* local);
     bool intersectP(Ray& ray);
->>>>>>> 54eb206fedede9173d0fb5ec56026259af6104c0
+
 private:
     float tmin, tmax, radius;
     Vector3f centervec;

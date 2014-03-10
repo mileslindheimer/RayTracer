@@ -6,14 +6,14 @@
         direction = d;
         t_minimum = min;
         t_maximum = max;
-        Vector3f posvec=Vector3f(p.getX(), p.GetY(), p.getZ());
+        //Vector3f posvec=Vector3f(p.getX(), p.getY(), p.getZ());
     }
     Point Ray::pos() {
         return position;
     }
-    Vector3f Ray::posvec() {
-        return posvec;
-    }
+//    Vector3f Ray::posvec() {
+//        return posvec;
+//    }
     Vector3f Ray::dir(){
         return direction;
     }
