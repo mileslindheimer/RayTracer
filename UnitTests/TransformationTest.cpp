@@ -45,5 +45,6 @@ void TransformationTest::testMul() {
     Transformation t1(m1);
     LocalGeo g1t = t1.mul(g1);
     g1t.getPos().print();
+    cout << g1t.getNormal().getX() << g1t.getNormal().getY() <<g1t.getNormal().getZ();
 }
 

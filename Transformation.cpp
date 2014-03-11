@@ -20,5 +20,13 @@ LocalGeo Transformation::mul(LocalGeo local){
     pos4 = m*pos4;
     pos3 = Point(pos4(0), pos4(1), pos4(2));
     g.setPos(pos3);
+    
+    Vector4f normal4;
+    Normal normal3;
+    normal4 << g.getNormal().getX(), g.getPos().getY(), g.getPos().getZ(), 1;
+    normal4 = minvt*normal4;
+    normal3 = Normal(normal4(0), normal4(1), normal4(2));
+    g.setNormal(normal3);
+    
     return g;
 }
