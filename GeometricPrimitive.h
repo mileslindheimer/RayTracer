@@ -25,7 +25,7 @@ public:
     void getBRDF(LocalGeo& local, BRDF* brdf);
 private:
     Transformation objToWorld, worldToObj;
-    Shape* shape;
+    Sphere* shape;
     Material* material;
 
 };

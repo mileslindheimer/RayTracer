@@ -10,7 +10,7 @@ Sphere::Sphere(float centerx, float centery, float centerz,float radius,float tm
 
 
 
-bool Sphere::intersect(Ray &ray, float *thit, LocalGeo *local){
+bool Sphere::intersect(Ray& ray, float *thit, LocalGeo *local){
     /*If the discriminant is positive, there are two solutions: one solution where
      the ray enters the sphere and one where it leaves. If the discriminant is zero, the
      ray grazes the sphere touching it at exactly one point.*/
@@ -32,6 +32,6 @@ bool Sphere::intersect(Ray &ray, float *thit, LocalGeo *local){
  
  
 
-bool Sphere::intersectP(Ray &ray){
+bool Sphere::intersectP(Ray& ray){
     return false;
 }
