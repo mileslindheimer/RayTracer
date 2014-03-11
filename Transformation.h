@@ -10,6 +10,8 @@
 #include "LocalGeo.h"
 
 #define Matrix4f Eigen::Matrix4f
+#define Vector4f Eigen::Vector4f
+#define Vector3f Eigen::Vector3f
 
 
 class Transformation {
@@ -22,8 +24,8 @@ public:
     Matrix4f getMinvt(){return minvt;}
     
     //need to implement these
-    Ray mul(Ray ray){return ray;}
-    LocalGeo mul(LocalGeo local){return local;}
+    Ray mul(Ray ray);
+    LocalGeo mul(LocalGeo local);
 
 private:
     Matrix4f m, minvt;
