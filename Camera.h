@@ -4,7 +4,7 @@
 #include <cstring>
 #include <math.h>
 #include <vector>
-#include <Eigen/Dense>
+#include "Eigen/Dense"
 #include "Ray.h"
 #include "Sample.h"
 #include "Point.h"

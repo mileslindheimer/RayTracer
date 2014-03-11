@@ -1,11 +1,11 @@
 #include "OBJParser.h"
 #include "Eigen/Dense"
-#include "testsphere.h"
+#include "Camera.h"
 #define Vector3f Eigen::Vector3f
 #define cout std::cout
 
-#define width 500
-#define height 500
+#define width 100
+#define height 100
 
 using namespace std;
 
@@ -13,16 +13,26 @@ using namespace std;
 unsigned char foo[] = {(unsigned char)1,(unsigned char)0,(unsigned char)0};
 
 int main(int argc, char** args){
-    Film film (100, 100);
+    Film film (width, height);
     Color c1(0,0,0);
-    Sample s1(5,30);
-    Point p(1,1,0);
+    Sample s1(0,0);
+    Point p(0,0,0);
     Vector3f v(0,0,-1);
-    Ray ray(p, v, 1, 5);
+    Ray ray(p, v, 1, 100);
+    Camera camera(p, width, height);
+    
     RayTracer rayTracer;
-    rayTracer.trace(ray, 1, &c1);
-    cout << "here\n";
-    film.commit(s1, c1);
+    
+   
+    //temporary for testing
+    for(int j=0; j<height; j++){
+        for(int i=0; i<width; i++){
+            s1 = Sample(i, j);
+            camera.generateRay(s1, &ray);
+            rayTracer.trace(ray, 1, &c1);
+            film.commit(s1, c1);
+        }
+    }
     film.writeImage();
 //    unsigned char r,g,b;
 //    Color image[width][height];

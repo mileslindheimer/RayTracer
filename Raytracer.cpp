@@ -1,32 +1,5 @@
 #include "RayTracer.h"
-#include "testsphere.h"
 #define cout std::cout
-
-class TestSphere : public Primitive {
-public:
-    
-    TestSphere(){
-        Point o(0,0,0);
-        origin = o;
-        r = 1;
-    }
-    bool intersect(Ray& ray, float* thit, Intersection* inter){
-        return true;
-    }
-    bool intersectP(Ray& ray){
-        return false;
-    }
-    void getBRDF(LocalGeo& local, BRDF* brdf);
-    float getR(){
-        return r;
-    }
-    Point getOrigin(){
-        return origin;
-    }
-private:
-    float r;
-    Point origin;
-};
 
 RayTracer::RayTracer(){
     maxDepth = 10;
@@ -44,16 +17,20 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     Point p1(0,0,0);
     Normal n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
-    TestSphere test;
-    Intersection inter = Intersection(local, test);
+    Sphere test(0,0,-2,.5,0,100);
+//    Intersection inter = Intersection(local, test);
 //    if(in->getPrimitive()->intersect())
 //        cout << "light blocked \n";
 //    if(!in->getPrimitive()->intersect(ray, &thit, &inter)){
 //        //color black
 //        return;
 //    }
+    Color c(0,0,0);
+    if(!test.intersect(ray, &thit, &local)){
+    } else {
+        c = Color(1, 0, 0);
+    }
     
-    Color c(0, .3, .6);
     color->add(c);
 //    in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
 //    for(int i=0; i<numLights; i++){

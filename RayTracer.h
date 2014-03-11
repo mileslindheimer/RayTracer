@@ -12,6 +12,7 @@
 #include "BRDF.h"
 #include "Light.h"
 #include "PointLight.h"
+#include "Shape.h"
 
 class RayTracer {
 public:

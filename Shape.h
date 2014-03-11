@@ -9,9 +9,8 @@
 class Shape
 {
 public:
-    virtual bool intersect(Ray& ray, float* thit, LocalGeo* local);
-    virtual bool intersectP(Ray& ray);
-    void createSphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
+    bool intersect(Ray& ray, float* thit, LocalGeo* local);
+    bool intersectP(Ray& ray);
     void createTriangle(float centerx,float centery, float radius); //fix later
     bool isTriangle();
     bool isCircle();
@@ -25,13 +24,13 @@ public:
 class Sphere : public Shape
 {
 public:
-    void createSphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
+    Sphere(float centerx,float centery,float centerz, float radius, float tmin, float tmax);
     bool intersect(Ray& ray, float* thit, LocalGeo* local);
     bool intersectP(Ray& ray);
 
 private:
     float tmin, tmax, radius;
-    Vector3f centervec;
+    Vector3f center;
 
     
 };
@@ -40,7 +39,7 @@ class Triangle : public Shape
 {
 public:
     void createTriangle(float centerx,float centery, float radius); //fix later
-	bool intersect(Ray& ray, double* thit, LocalGeo* local);
+	bool intersect(Ray& ray, float* thit, LocalGeo* local);
 	bool intersectP(Ray& ray);
     
     
