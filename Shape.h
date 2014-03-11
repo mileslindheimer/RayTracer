@@ -30,7 +30,7 @@ public:
 
 private:
     float tmin, tmax, radius;
-    Vector3f center;
+    Point center;
 
     
 };

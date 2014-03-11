@@ -25,10 +25,11 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
 //        //color black
 //        return;
 //    }
-    Color c(0,0,0);
+    Color c;
     if(!test.intersect(ray, &thit, &local)){
+        c = Color(0,0,0);
     } else {
-        c = Color(.5, 0, 0);
+        c = Color(.5, 1, 0);
     }
     
     color->add(c);

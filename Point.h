@@ -22,7 +22,7 @@ public:
     void setZ(float newz);
     void add(Vector3f v);
     void sub(Vector3f v);
-    Vector3f sub(Point* p);
+    Vector3f sub(Point p);
     void print(void);
     bool equals(Point* p);
 

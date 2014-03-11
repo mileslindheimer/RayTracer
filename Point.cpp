@@ -34,11 +34,11 @@ Point::Point (float px, float py, float pz){
         y-=v[1];
         z-=v[2];
     }
-    Vector3f Point::sub(Point* p) {
+    Vector3f Point::sub(Point p) {
         Vector3f v(3);
-        v[0] = x-p->x;
-        v[1] = y-p->y;
-        v[2] = z-p->z;
+        v[0] = x-p.x;
+        v[1] = y-p.y;
+        v[2] = z-p.z;
         return v;
     }
 
