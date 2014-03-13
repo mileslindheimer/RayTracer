@@ -18,7 +18,7 @@ class GeometricPrimitive : public Primitive {
     
 public:
     GeometricPrimitive();
-    GeometricPrimitive(Shape* shape){}
+    GeometricPrimitive(Sphere* s){shape = s;}
     bool intersect(Ray& ray, float* thit, Intersection* inter);
     
     bool intersectP(Ray& ray);

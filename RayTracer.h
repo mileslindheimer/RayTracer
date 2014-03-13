@@ -9,6 +9,7 @@
 #include "Ray.h"
 #include "Intersection.h"
 #include "Primitive.h"
+#include "GeometricPrimitive.h"
 #include "BRDF.h"
 #include "Light.h"
 #include "PointLight.h"

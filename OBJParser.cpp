@@ -4,8 +4,8 @@
 #define Vector3f Eigen::Vector3f
 #define cout std::cout
 
-#define width 500
-#define height 500
+#define width 300
+#define height 300
 
 using namespace std;
 
@@ -16,13 +16,12 @@ int main(int argc, char** args){
     Film film (width, height);
     Color c1(0,0,0);
     Sample s1(0,0);
-    Point p(.5,.5,0);
+    Point p(0,0,-1);
     Vector3f v(0,0,-1);
     Ray ray(p, v, 1, 100);
     Camera camera(p, width, height);
     
     RayTracer rayTracer;
-    
     
     //temporary for testing
     for(int j=0; j<height; j++){

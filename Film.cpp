@@ -12,7 +12,7 @@ Film::Film(int width, int height){
 }
 
 void Film::commit(Sample sample, Color color){
-    image[sample.getintX()][sample.getintY()]=color;
+    image[sample.getintX()][sample.getintY()]= color;
     
 }
 

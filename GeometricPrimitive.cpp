@@ -10,6 +10,7 @@ bool GeometricPrimitive::intersect(Ray& ray, float* thit, Intersection* in)  {
     if (!shape->intersect(oray, thit, &olocal))  return false;
     in->setPrimitive(*this);
     in->setLocalGeo(objToWorld.mul(olocal));
+//    in->setLocalGeo(objToWorld.mul(olocal));
     return true;
 }
 

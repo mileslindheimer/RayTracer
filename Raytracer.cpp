@@ -8,6 +8,17 @@ RayTracer::RayTracer(){
     PointLight pl;
 }
 
+void RayTracer::diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l){
+    Vector3f nhat = n;
+    Vector3f lhat = l;
+//    nhat.normalize();
+    lhat.normalize();
+    float ndotl = fmax(nhat.dot(lhat),0);
+    color->add( Color( kd.getR()*lcolor.getR()*ndotl, kd.getG()*lcolor.getG()*ndotl, kd.getB()*lcolor.getB()*ndotl) );
+    
+}
+
+
 void RayTracer::trace(Ray& ray, int depth, Color* color){
     if(depth > maxDepth){
         //color black
@@ -17,22 +28,31 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     Point p1(0,0,0);
     Normal n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
-    Sphere test(.5,.5,-1,.5,0,100);
-//    Intersection inter = Intersection(local, test);
+    Sphere test(0,0,10,1,0,100);
+    if(test.intersect(ray, &thit, &local)){
+        color->add( Color(1,0,0) );
+    }
+//    Primitive p = GeometricPrimitive(&test);
+//    Intersection inter = Intersection(local, p);
 //    if(in->getPrimitive()->intersect())
 //        cout << "light blocked \n";
 //    if(!in->getPrimitive()->intersect(ray, &thit, &inter)){
 //        //color black
 //        return;
 //    }
-    Color c;
-    if(!test.intersect(ray, &thit, &local)){
-        c = Color(0,0,0);
-    } else {
-        c = Color(.5, 0, 0);
-    }
+//    Color c;
+//    if(!p.intersect(ray, &thit, &inter)){
+//
+//    } else {
+//
+//        Vector3f n = Vector3f(inter.getLocal().getNormal().getX(), inter.getLocal().getNormal().getY(), inter.getLocal().getNormal().getZ());
+//
+//        Vector3f l(1,1,-1);
+//        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
+//        
+//    }
     
-    color->add(c);
+
 //    in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
 //    for(int i=0; i<numLights; i++){
 //        lights[i].generateLightRay(in->getLocal(), lights[i].getRay(), color);
@@ -51,12 +71,3 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
 //    }
 }
 
-void RayTracer::diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l){
-    Vector3f nhat = n;
-    Vector3f lhat = l;
-    nhat.normalize();
-    lhat.normalize();
-    float ndotl = fmax(nhat.dot(lhat),0);
-    color->add( Color( kd.getR()*lcolor.getR()*ndotl, kd.getG()*lcolor.getG()*ndotl, kd.getB()*lcolor.getB()*ndotl) );
-    
-}
