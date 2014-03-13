@@ -13,12 +13,14 @@
 #include "Light.h"
 #include "PointLight.h"
 #include "Shape.h"
+#define Vector3f Eigen::Vector3f
 
 class RayTracer {
 public:
     RayTracer();
     void trace(Ray& ray, int depth, Color* color);
 private:
+    void diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l);
     int maxDepth;
     int numLights;
     PointLight pl;

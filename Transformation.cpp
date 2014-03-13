@@ -6,9 +6,18 @@ Transformation::Transformation(Matrix4f matrix){
 }
 Ray Transformation::mul(Ray ray){
     Ray r = ray;
+    Vector4f p4;
     Vector4f v4;
-    v4 << r.dir(),0;
-    //more
+    Vector3f v3;
+    Point p3;
+    
+    p4 << ray.pos().getX(),ray.pos().getY(),ray.pos().getZ(),1;
+    v4 << r.dir(),1;
+    p4 = m.inverse() * p4;
+    p3 = Point(p4[0], p4[1], p4[2]);
+    v4 = m.inverse() * v4;
+    r.setPos(p3);
+    r.setDir(Vector3f(v4[0], v4[1], v4[2]));
     return r;
 }
 

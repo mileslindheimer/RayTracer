@@ -33,7 +33,7 @@ Camera.o: Camera.cpp Camera.h
 	CC -c Camera.cpp -I${EIGEN_PATH}
 
 Film.o: Film.cpp Film.h
-	CC -c Film.cpp
+	CC -c Film.cpp -g
 
 Material.o: Material.cpp Material.h
 	CC -c Material.cpp -I${EIGEN_PATH}
@@ -54,10 +54,10 @@ GeometricPrimitive.o: GeometricPrimitive.cpp GeometricPrimitive.h
 	CC -c GeometricPrimitive.cpp
 
 RayTracer.o: RayTracer.cpp RayTracer.h
-	CC -c RayTracer.cpp -I${EIGEN_PATH}
+	CC -c RayTracer.cpp -I${EIGEN_PATH} -g
 
 parse.o: OBJParser.cpp OBJParser.h
-	CC -c OBJParser.cpp -I${EIGEN_PATH}
+	CC -c OBJParser.cpp -I${EIGEN_PATH} -g
 
 clean:
 	/bin/rm -f *.o parse

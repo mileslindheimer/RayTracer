@@ -4,7 +4,7 @@
 RayTracer::RayTracer(){
     maxDepth = 10;
     numLights = 1;
-    thit = 1;
+    thit = 0;
     PointLight pl;
 }
 
@@ -17,7 +17,7 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     Point p1(0,0,0);
     Normal n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
-    Sphere test(0,0,-2,.5,0,100);
+    Sphere test(.5,.5,-1,.5,0,100);
 //    Intersection inter = Intersection(local, test);
 //    if(in->getPrimitive()->intersect())
 //        cout << "light blocked \n";
@@ -29,7 +29,7 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     if(!test.intersect(ray, &thit, &local)){
         c = Color(0,0,0);
     } else {
-        c = Color(.5, 1, 0);
+        c = Color(.5, 0, 0);
     }
     
     color->add(c);
@@ -49,4 +49,14 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
 //        trace(reflectRay, depth+1; &color);
 //        *color->add(color->mul(brdf->getKR()));
 //    }
+}
+
+void RayTracer::diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l){
+    Vector3f nhat = n;
+    Vector3f lhat = l;
+    nhat.normalize();
+    lhat.normalize();
+    float ndotl = fmax(nhat.dot(lhat),0);
+    color->add( Color( kd.getR()*lcolor.getR()*ndotl, kd.getG()*lcolor.getG()*ndotl, kd.getB()*lcolor.getB()*ndotl) );
+    
 }

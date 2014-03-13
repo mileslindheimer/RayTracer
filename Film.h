@@ -17,7 +17,7 @@ public:
 
 private:
     int w, h;
-    Color image[100][100];
+    Color** image;
 };
 
 #endif /* Film_H */

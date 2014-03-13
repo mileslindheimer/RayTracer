@@ -13,6 +13,8 @@ public:
     Sample (float sx, float sy);
     float getX(void);
     float getY(void);
+    int getintX(void);
+    int getintY(void);
     void setX(float newx);
     void setY(float newy);
 
