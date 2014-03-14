@@ -15,9 +15,10 @@ bool Sphere::intersect(Ray& ray, float *thit, LocalGeo *local){
      the ray enters the sphere and one where it leaves. If the discriminant is zero, the
      ray grazes the sphere touching it at exactly one point.*/
     Vector3f dir = ray.dir();
+    Vector3f e_minus_c = ray.pos().sub(center);
     float a = dir.dot(dir);
-    float b= (2*dir).dot((ray.pos().sub(center)));
-    float c = (ray.pos().sub(center)).dot((ray.pos().sub(center)))-pow(radius,2.0);
+    float b= (2*dir).dot((e_minus_c));
+    float c = (e_minus_c).dot(e_minus_c)-pow(radius,2.0);
     
     float discriminant = pow(b,2.0)-(4*a*c);
     
@@ -26,9 +27,9 @@ bool Sphere::intersect(Ray& ray, float *thit, LocalGeo *local){
 	}
 	else {
         // might only need to calculate one t
-        float discr = pow( dir.dot(ray.pos().sub(center)) ,2.0) - a*c;
-        float t1 = (-dir.dot(ray.pos().sub(center)) - sqrt( discr ))/a;
-        float t2= (-dir.dot(ray.pos().sub(center)) + sqrt( discr ))/a;
+        float discr = pow( dir.dot(e_minus_c) ,2.0) - a*c;
+        float t1 = (-dir.dot(e_minus_c) - sqrt( discr ))/a;
+        float t2= (-dir.dot(e_minus_c) + sqrt( discr ))/a;
         float tmin = fmin(t1,t2);
         
 //        cout << tmin;
