@@ -13,20 +13,25 @@
 #include "Transformation.h"
 #include "Shape.h"
 #include "Material.h"
+#include "Primitive.h"
 
 class GeometricPrimitive : public Primitive {
     
 public:
-    GeometricPrimitive();
-    GeometricPrimitive(Sphere* s){shape = s;}
-    bool intersect(Ray& ray, float* thit, Intersection* inter);
+    GeometricPrimitive(Transformation o2w, Transformation w2o, Sphere* s){
+        objToWorld=o2w;
+        worldToObj=w2o;
+        shape = s;
+    }
+//    ~GeometricPrimitive(){delete shape;}
+    bool intersect (Ray& ray, float* thit, Intersection* inter);
     
     bool intersectP(Ray& ray);
-    void getBRDF(LocalGeo& local, BRDF* brdf);
+//    void getBRDF(LocalGeo& local, BRDF* brdf);
 private:
     Transformation objToWorld, worldToObj;
     Sphere* shape;
-    Material* material;
+//    Material* material;
 
 };
 

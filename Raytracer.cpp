@@ -28,29 +28,41 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     Point p1(0,0,0);
     Normal n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
-    Sphere test(-1,0,5,1,0,100);
-    if(test.intersect(ray, &thit, &local)){
-        color->add( Color(.5,0,0) );
-    }
-//    Primitive p = GeometricPrimitive(&test);
-//    Intersection inter = Intersection(local, p);
+    Sphere test(0,0,5,1,0,100);
+//    if(test.intersect(ray, &thit, &local)){
+//        Color c(1,0,0);
+//        *color = c;
+//    }
+//    else {
+//        *color = Color(0,0,0);
+//    }
+    Matrix4f matr;
+    matr <<
+    1,0,0,0,
+    0,1,0,0,
+    0,0,1,0,
+    0,0,0,1;
+    Transformation trans(matr);
+    GeometricPrimitive p = GeometricPrimitive(trans,trans,&test);
+    Intersection in;
 //    if(in->getPrimitive()->intersect())
 //        cout << "light blocked \n";
-//    if(!in->getPrimitive()->intersect(ray, &thit, &inter)){
-//        //color black
+//        *color = Color(0,0,0);
 //        return;
-//    }
-//    Color c;
-//    if(!p.intersect(ray, &thit, &inter)){
-//
-//    } else {
-//
-//        Vector3f n = Vector3f(inter.getLocal().getNormal().getX(), inter.getLocal().getNormal().getY(), inter.getLocal().getNormal().getZ());
-//
-//        Vector3f l(1,1,-1);
+    if(!p.intersect(ray, &thit, &in)){
+        //color black
+        *color = Color(0,0,0);
+        return;
+
+    } else {
+        Normal normal = in.getLocal().getNormal();
+        Vector3f n = Vector3f(normal.getX(),normal.getY(),normal.getZ());
+
+        Vector3f l(1,1,-1);
 //        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
-//        
-//    }
+        *color = Color(1,0,0);
+        
+    }
     
 
 //    in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
