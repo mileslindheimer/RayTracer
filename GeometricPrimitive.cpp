@@ -2,21 +2,14 @@
 
 
 
-GeometricPrimitive::GeometricPrimitive(Shape* s, Transformation objToWorld){
-	shape = s;
-	objToWorld.matrix = objToWorld;
-	worldToObj.matrix = objToWorld.matrix.inverse();
-	objToWorld.minvt = objToWorld.matrix.inverse().transpose();
-	worldToObj.minvt = objToWorld.matrix.transpose();
 
-}
-
-
-GeometricPrimitive::GeometricPrimitive(Shape* s, Transformation OtoW, Material* m){
-	shape = s;
-	objToWorld.matrix = OtoW;
-	worldToObj.matrix = OtoW.matrix.inverse();
-	material = m;
+GeometricPrimitive::GeometricPrimitive(Shape* s, Matrix4f ob2worldinput, Material* m){
+	this->shape = s;
+    this->material=m;
+	objToWorld.setMatrix(ob2worldinput);
+	worldToObj.setMatrix(ob2worldinput.inverse());
+    worldToObj.setMinvt(ob2worldinput.transpose());
+	objToWorld.setMinvt(ob2worldinput.inverse().transpose());
 }
 
 

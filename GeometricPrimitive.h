@@ -18,21 +18,15 @@
 class GeometricPrimitive : public Primitive {
     
 public:
-    GeometricPrimitive(Transformation o2w, Transformation w2o, Sphere* s){
-        objToWorld=o2w;
-        worldToObj=w2o;
-        shape = s;
-        
-    }
-    GeometricPrimitive::GeometricPrimitive(Shape* s, Transformation OtoW, Material* m);
-//    ~GeometricPrimitive(){delete shape;}
+   GeometricPrimitive(Shape* s, Matrix4f objToWorld, Material* m);
+
     bool intersect (Ray& ray, float* thit, Intersection* inter);
     
     bool intersectP(Ray& ray);
-//    void getBRDF(LocalGeo& local, BRDF* brdf);
+
 private:
     Transformation objToWorld, worldToObj;
-    Sphere* shape;
+    Shape* shape;
     Material* material;
 //    Material* material;
 

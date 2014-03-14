@@ -11,10 +11,12 @@ RayTracer::RayTracer(){
 void RayTracer::diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l){
     Vector3f nhat = n;
     Vector3f lhat = l;
-//    nhat.normalize();
+    nhat.normalize();
     lhat.normalize();
     float ndotl = fmax(nhat.dot(lhat),0);
-    color->add( Color( kd.getR()*lcolor.getR()*ndotl, kd.getG()*lcolor.getG()*ndotl, kd.getB()*lcolor.getB()*ndotl) );
+    color->add( Color( kd.getR()*lcolor.getR()*ndotl,
+                      kd.getG()*lcolor.getG()*ndotl,
+                      kd.getB()*lcolor.getB()*ndotl) );
     
 }
 
@@ -43,7 +45,10 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     0,0,1,0,
     0,0,0,1;
     Transformation trans(matr);
-    GeometricPrimitive p = GeometricPrimitive(trans,trans,&test);
+    //shape,matrix material
+    BRDF brdf(Color(.3,.3,.3),Color(0,0,0),Color(0,0,0),Color(0,0,0));
+    Material mattest(brdf);
+    GeometricPrimitive p = GeometricPrimitive(&test,matr,&mattest);
     Intersection in;
 //    if(in->getPrimitive()->intersect())
 //        cout << "light blocked \n";
@@ -59,9 +64,11 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
         Vector3f n = Vector3f(normal[0],normal[1],normal[2]);
 
         Vector3f l(1,1,-1);
-        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
+         diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
         *color = Color(1,0,0);
-        
+         diffuse(Color(.3,.3,.3), color, Color(1,0,0), n, l);
+//        *color = Color(1,0,0);
+         
     }
     
 

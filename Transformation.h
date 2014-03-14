@@ -23,6 +23,9 @@ public:
     Matrix4f getM(){return matrix;}
     Matrix4f getMinvt(){return minvt;}
     
+    void setMatrix(Matrix4f matrix);
+    void setMinvt(Matrix4f matrix);
+    
     //need to implement these
     Ray mul(Ray ray);
     LocalGeo mul(LocalGeo local);
