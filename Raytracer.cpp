@@ -26,16 +26,16 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
         return;
     }
     Point p1(0,0,0);
-    Normal n1(1,0,0);
+    Vector3f n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
     Sphere test(0,0,5,1,0,100);
-//    if(test.intersect(ray, &thit, &local)){
-//        Color c(1,0,0);
-//        *color = c;
-//    }
-//    else {
-//        *color = Color(0,0,0);
-//    }
+    if(test.intersect(ray, &thit, &local)){
+        Color c(1,0,0);
+        *color = c;
+    }
+    else {
+                *color = Color(0,0,0);
+    }
     Matrix4f matr;
     matr <<
     1,0,0,0,
@@ -55,31 +55,16 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
         return;
 
     } else {
-        Normal normal = in.getLocal().getNormal();
-        Vector3f n = Vector3f(normal.getX(),normal.getY(),normal.getZ());
+        Vector3f normal = in.getLocal().getNormal();
+        Vector3f n = Vector3f(normal[0],normal[1],normal[2]);
 
         Vector3f l(1,1,-1);
-//        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
+        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
         *color = Color(1,0,0);
         
     }
     
 
-//    in->getPrimitive()->getBRDF(in->getLocal(), &brdf);
-//    for(int i=0; i<numLights; i++){
-//        lights[i].generateLightRay(in->getLocal(), lights[i].getRay(), color);
-//        
-//        if (!in->getPrimitive()->intersectP(ray)){
-//            Color c(0, 1, 0);
-//            color->add(c);
-//            *color->add(shading(in->getLocal(), brdf, ray, lcolor));
-//        }
-//    }
-//    if(brdf.getKR() > 0){
-//        Ray reflectRay(in->getLocal(), ray);
-        //should be tempColor, compiling...
-//        trace(reflectRay, depth+1; &color);
-//        *color->add(color->mul(brdf->getKR()));
-//    }
+ 
 }
 

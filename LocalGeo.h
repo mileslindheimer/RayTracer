@@ -13,17 +13,17 @@ class LocalGeo {
     
 public:
     LocalGeo();
-    LocalGeo (Point p, Normal n);
+    LocalGeo (Point p, Vector3f n);
     Point getPos(void);
-    Normal getNormal(void);
+    Vector3f getNormal(void);
     
     void setPos(Point newp);
-    void setNormal(Normal newn);
+    void setNormal(Vector3f newn);
     //untested until normal class finished
     //    bool equals(LocalGeo* g);
 private:
     Point pos;
-    Normal normal;
+    Vector3f normalvec;
 };
 
 #endif /* LocalGeo_H */

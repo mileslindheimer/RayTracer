@@ -1,8 +1,8 @@
 #include "Transformation.h"
 
-Transformation::Transformation(Matrix4f matrix){
-    m = matrix;
-    minvt = matrix.inverse().transpose();
+Transformation::Transformation(Matrix4f m){
+    matrix = m;
+    minvt = m.inverse().transpose();
 }
 Ray Transformation::mul(Ray ray){
     Ray r = ray;
@@ -13,14 +13,14 @@ Ray Transformation::mul(Ray ray){
     
     p4 << ray.pos().getX(),ray.pos().getY(),ray.pos().getZ(),1;
     v4 << r.dir(),1;
-    p4 = m.inverse() * p4;
+    p4 = matrix.inverse() * p4;
     p3 = Point(p4[0], p4[1], p4[2]);
-    v4 = m.inverse() * v4;
+    v4 = matrix.inverse() * v4;
     r.setPos(p3);
     r.setDir(Vector3f(v4[0], v4[1], v4[2]));
     return r;
 }
-
+/*
 LocalGeo Transformation::mul(LocalGeo local){
     LocalGeo g = local;
     Vector4f pos4;
@@ -31,7 +31,7 @@ LocalGeo Transformation::mul(LocalGeo local){
     g.setPos(pos3);
     
     Vector4f normal4;
-    Normal normal3;
+    Vector3f normal3;
     normal4 << g.getNormal().getX(), g.getPos().getY(), g.getPos().getZ(), 1;
     normal4 = minvt*normal4;
     normal3 = Normal(normal4(0), normal4(1), normal4(2));
@@ -39,3 +39,4 @@ LocalGeo Transformation::mul(LocalGeo local){
     
     return g;
 }
+*/

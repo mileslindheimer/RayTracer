@@ -1,5 +1,4 @@
 
-
 #ifndef Primitive_H
 #define Primitive_H
 
@@ -16,13 +15,12 @@ class Intersection;
 class Primitive {
     
 public:
-//    Primitive(){}
-    virtual ~Primitive(){}
-    virtual bool intersect(Ray& ray, float* thit, Intersection* inter){};
-    virtual bool intersectP(Ray& ray){};
-//    virtual void getBRDF(LocalGeo& local, BRDF* brdf);
-
-
+    //    Primitive(){}
+     bool intersect(Ray& ray, float* thit, Intersection* inter);
+     bool intersectP(Ray& ray);
+    //    virtual void getBRDF(LocalGeo& local, BRDF* brdf);
+    
+    
 };
 
 #endif /* Primitive_H */

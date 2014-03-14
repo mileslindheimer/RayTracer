@@ -22,7 +22,9 @@ public:
         objToWorld=o2w;
         worldToObj=w2o;
         shape = s;
+        
     }
+    GeometricPrimitive::GeometricPrimitive(Shape* s, Transformation OtoW, Material* m);
 //    ~GeometricPrimitive(){delete shape;}
     bool intersect (Ray& ray, float* thit, Intersection* inter);
     
@@ -31,8 +33,10 @@ public:
 private:
     Transformation objToWorld, worldToObj;
     Sphere* shape;
+    Material* material;
 //    Material* material;
 
 };
 
 #endif /* GeometricPrimitive_H */
+

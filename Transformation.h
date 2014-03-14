@@ -20,7 +20,7 @@ public:
     Transformation(){}
     Transformation(Matrix4f matrix);
     
-    Matrix4f getM(){return m;}
+    Matrix4f getM(){return matrix;}
     Matrix4f getMinvt(){return minvt;}
     
     //need to implement these
@@ -28,7 +28,7 @@ public:
     LocalGeo mul(LocalGeo local);
 
 private:
-    Matrix4f m, minvt;
+    Matrix4f matrix, minvt;
     
 };
 

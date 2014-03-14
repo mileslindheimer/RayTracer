@@ -3,22 +3,22 @@
 LocalGeo::LocalGeo(){
 }
 
-LocalGeo::LocalGeo (Point p, Normal n){
+LocalGeo::LocalGeo (Point p, Vector3f n){
         pos=p;
-        normal=n;
+        normalvec=n;
     }
     Point LocalGeo::getPos(void) {
         return pos;
     }
-    Normal LocalGeo::getNormal(void) {
-        return normal;
+    Vector3f LocalGeo::getNormal(void) {
+        return normalvec;
     }
 
     void LocalGeo::setPos(Point newp) {
         pos=newp;
     }
-    void LocalGeo::setNormal(Normal newn) {
-        normal=newn;
+    void LocalGeo::setNormal(Vector3f newn) {
+        normalvec=newn;
     }
     //untested until normal class finished
 //    bool equals(LocalGeo* g) {
