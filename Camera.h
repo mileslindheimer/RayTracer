@@ -18,8 +18,5 @@ public:
 private:
     Point eye;
     float w,h;
-    int plane_w;
-    int plane_h;
-    Vector3f cam_up;
 };
  
