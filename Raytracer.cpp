@@ -11,10 +11,12 @@ RayTracer::RayTracer(){
 void RayTracer::diffuse(Color kd,Color* color, Color lcolor, Vector3f n, Vector3f l){
     Vector3f nhat = n;
     Vector3f lhat = l;
-//    nhat.normalize();
+    nhat.normalize();
     lhat.normalize();
     float ndotl = fmax(nhat.dot(lhat),0);
-    color->add( Color( kd.getR()*lcolor.getR()*ndotl, kd.getG()*lcolor.getG()*ndotl, kd.getB()*lcolor.getB()*ndotl) );
+    color->add( Color( kd.getR()*lcolor.getR()*ndotl,
+                      kd.getG()*lcolor.getG()*ndotl,
+                      kd.getB()*lcolor.getB()*ndotl) );
     
 }
 
@@ -59,8 +61,8 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
         Vector3f n = Vector3f(normal.getX(),normal.getY(),normal.getZ());
 
         Vector3f l(1,1,-1);
-//        diffuse(Color(.3,.3,.3), color, Color(1,1,1), n, l);
-        *color = Color(1,0,0);
+        diffuse(Color(.3,.3,.3), color, Color(1,0,0), n, l);
+//        *color = Color(1,0,0);
         
     }
     

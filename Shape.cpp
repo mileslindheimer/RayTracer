@@ -29,16 +29,17 @@ bool Sphere::intersect(Ray& ray, float *thit, LocalGeo *local){
         float discr = pow( dir.dot(e_minus_c) ,2.0) - a*c;
         float t1 = (-dir.dot(e_minus_c) - sqrt( discr ))/a;
         float t2= (-dir.dot(e_minus_c) + sqrt( discr ))/a;
-        float tmin = fmin(t1,t2);
+        float t = fmin(t1,t2);
         
-//        cout << tmin;
-        if (tmin<0){
+        if (t<ray.t_min() || t>ray.t_max()){
             return false;
         }
-        *thit = tmin;
-        Point pos = center;
-        pos.add(tmin*ray.dir());
-        *local = LocalGeo(pos, Normal(pos.getX(),pos.getY(),pos.getZ()));
+        *thit = t;
+        Vector3f p(center.getX(), center.getY(), center.getZ());
+        Vector3f lg = t*ray.dir()+p;
+        Point pos(lg[0],lg[1],lg[2]);
+        Vector3f n = pos.sub(center);
+        *local = LocalGeo(pos, Normal(n[0],n[1],n[2]));
 
         return true;
     }
