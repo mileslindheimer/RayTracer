@@ -28,9 +28,9 @@ void RayTracer::trace(Ray& ray, int depth, Color* color){
     Point p1(0,0,0);
     Normal n1(1,0,0);
     LocalGeo local = LocalGeo(p1, n1);
-    Sphere test(0,0,10,1,0,100);
+    Sphere test(-1,0,5,1,0,100);
     if(test.intersect(ray, &thit, &local)){
-        color->add( Color(1,0,0) );
+        color->add( Color(.5,0,0) );
     }
 //    Primitive p = GeometricPrimitive(&test);
 //    Intersection inter = Intersection(local, p);

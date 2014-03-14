@@ -20,14 +20,17 @@ bool Sphere::intersect(Ray& ray, float *thit, LocalGeo *local){
     float c = (ray.pos().sub(center)).dot((ray.pos().sub(center)))-pow(radius,2.0);
     
     float discriminant = pow(b,2.0)-(4*a*c);
+    
     if(discriminant < 0){
 		return false;
 	}
 	else {
         // might only need to calculate one t
-        float t1 = -ray.dir().dot(ray.pos().sub(center)) - sqrt(discriminant);
-        float t2= -ray.dir().dot(ray.pos().sub(center)) + sqrt(discriminant);
+        float discr = pow( dir.dot(ray.pos().sub(center)) ,2.0) - a*c;
+        float t1 = (-dir.dot(ray.pos().sub(center)) - sqrt( discr ))/a;
+        float t2= (-dir.dot(ray.pos().sub(center)) + sqrt( discr ))/a;
         float tmin = fmin(t1,t2);
+        
 //        cout << tmin;
         if (tmin<0){
             return false;
